@@ -6,14 +6,12 @@ csv_writer = csv.writer(csv_file)
 csv_writer.writerow(['Image','Title','Price','Rating','Author'])
 url =[]
 for i in range(1,100):
-    url.append("https://www.amazon.in/s?rh=n%3A976389031%2Cn%3A%21976390031%2Cn%3A15417300031%2Cn%3A4149418031%2Cn%3A4149470031&page="+str(i)+"&qid=1566657825&ref=lp_4149470031_pg_"+str(i))
-for i in range(1,100):
     
     # add header
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36'
     }
-    r = requests.get(url[i], headers=headers)
+    r = requests.get("https://www.amazon.in/s?rh=n%3A976389031%2Cn%3A%21976390031%2Cn%3A15417300031%2Cn%3A4149418031%2Cn%3A4149470031&page="+str(i)+"&qid=1566657825&ref=lp_4149470031_pg_"+str(i), headers=headers)
 
     soup = BeautifulSoup(r.content,"lxml")
 
